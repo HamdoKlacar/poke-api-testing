@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "9a8b2ae0-2a95-4cc7-996e-9dbada5f11ae",
+		"name": "PokeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25648303"
+	},
+	"item": [
+		{
+			"name": "Charmander Weight, Ability, Name, Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander weight is correct\", () => {\r",
+							"  pm.expect(responseJson.weight).to.eql(parseInt(pm.environment.get(\"charmanderWeight\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander name is true\", () => {\r",
+							"  pm.expect(responseJson.name).to.eql(pm.environment.get(\"charmanderName\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander has two abilities\", () => {\r",
+							"  pm.expect(responseJson.abilities.length).to.eql(parseInt(pm.environment.get(\"numberOfAbilitiesCharmander\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander abilities are correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.abilities.length; i++) {\r",
+							"        pm.expect(responseJson.abilities[i].ability.name).to.be.oneOf(JSON.parse(pm.environment.get(\"charmanderAbilities\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander has one type\", () => {\r",
+							"  pm.expect(responseJson.types.length).to.eql(parseInt(pm.environment.get(\"numberOfCharmanderTypes\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Charmander types are correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.types.length; i++) {\r",
+							"        pm.expect(responseJson.types[i].type.name).to.be.oneOf(JSON.parse(pm.environment.get(\"charmanderTypes\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"myData\": [{{savedData}}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/pokemon/{{charmanderId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"pokemon",
+						"{{charmanderId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulbasaur Weight, Ability, Name, Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur weight is correct\", () => {\r",
+							"  pm.expect(responseJson.weight).to.eql(parseInt(pm.environment.get(\"bulbasaurWeight\")));\r",
+							"  });\r",
+							"\r",
+							"\r",
+							"pm.test(\"Bulbasaur name is true\", () => {\r",
+							"  pm.expect(responseJson.name).to.eql(pm.environment.get(\"bulbasaurName\"));\r",
+							"  });\r",
+							" \r",
+							"pm.test(\"Bulbasaur has two abilities\", () => {\r",
+							"  pm.expect(responseJson.abilities.length).to.eql(parseInt(pm.environment.get(\"numberOfAbilitiesBulbasaur\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur abilities are correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.abilities.length; i++) {\r",
+							"        pm.expect(responseJson.abilities[i].ability.name).to.be.oneOf(JSON.parse(pm.environment.get(\"bulbasaurAbilities\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bulbasaur has two types\", () => {\r",
+							"  pm.expect(responseJson.types.length).to.eql(parseInt(pm.environment.get(\"numberOfBulbasaurTypes\")));\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Bulbasaur types are correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.types.length; i++) {\r",
+							"        pm.expect(responseJson.types[i].type.name).to.be.oneOf(JSON.parse(pm.environment.get(\"bulbasaurTypes\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							" \r",
+							"\r",
+							"\r",
+							"\r",
+							" \r",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"myData\": [{{savedData}}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/pokemon/{{bulbasaurId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"pokemon",
+						"{{bulbasaurId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Squirtle Weight, Ability, Name, Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json(); \r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle weight is correct\", () => {\r",
+							"  pm.expect(responseJson.weight).to.eql(parseInt(pm.environment.get(\"squirtleWeight\")));\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Squirtle name is true\", () => {\r",
+							"  pm.expect(responseJson.name).to.eql(pm.environment.get(\"squirtleName\"));\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Squirtle has two abilities\", () => {\r",
+							"  pm.expect(responseJson.abilities.length).to.eql(parseInt(pm.environment.get(\"numberOfAbilitiesSquirtle\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle abilities are correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.abilities.length; i++) {\r",
+							"        pm.expect(responseJson.abilities[i].ability.name).to.be.oneOf(JSON.parse(pm.environment.get(\"squirtleAbilities\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle has one type\", () => {\r",
+							"  pm.expect(responseJson.types.length).to.eql(parseInt(pm.environment.get(\"numberOfSquirtleTypes\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Squirtle type is correct\", () => {\r",
+							"    for (let i = 0; i < responseJson.types.length; i++) {\r",
+							"        pm.expect(responseJson.types[i].type.name).to.be.oneOf(JSON.parse(pm.environment.get(\"squirtleTypes\")));\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"  "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"myData\": [{{savedData}}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/pokemon/7/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"pokemon",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
