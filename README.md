@@ -3,10 +3,10 @@ By using https://pokeapi.co/ I did a Postman collection and environment file con
 
 Output of the tests for each Pokemons containes 
 
-- Name
+- Weight
 
 - Ability/Abilities
 
-- Type/Types
+- Name
 
-- Weight
+- Type/Types
