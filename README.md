@@ -2,7 +2,7 @@
 ## What is this repository for?
 Practicing api testing using Postman and Newman against Pokemon API https://pokeapi.co.
 
-This repo contains Postman collection with three requests containing tests for three different pokemons: Charmander, Bulbasaur and Squirtle.
+This repo contains Postman collection with three GET requests containing tests for three different pokemons: Charmander, Bulbasaur and Squirtle.
 
 Following fields are asserted in tests: 
 
